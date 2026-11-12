@@ -24,6 +24,15 @@ def listar_estudiantes():
     for est in estudiantes:
         print(f"Código: {est['codigo']} | Nombre: {est['nombre']} | Carrera: {est['carrera']}")
 
+def buscar_estudiante():
+    print("\n--- Buscar Estudiante ---")
+    codigo = input("Ingrese el código a buscar: ")
+    for est in estudiantes:
+        if est["codigo"] == codigo:
+            print(f"Encontrado -> Nombre: {est['nombre']} | Carrera: {est['carrera']} | Notas: {est['notas']}")
+            return
+    print("No se encontró ningún estudiante con ese código.")
+
 def menu():
     while True:
         print("\n==========================================")
@@ -31,7 +40,8 @@ def menu():
         print("==========================================")
         print("1. Registrar estudiante")
         print("2. Listar estudiantes")
-        print("3. Salir")
+        print("3. Buscar estudiante por código")
+        print("4. Salir")
         
         opcion = input("Seleccione una opción: ")
         
@@ -40,6 +50,8 @@ def menu():
         elif opcion == "2":
             listar_estudiantes()
         elif opcion == "3":
+            buscar_estudiante()
+        elif opcion == "4":
             print("Saliendo del sistema...")
             break
         else:
